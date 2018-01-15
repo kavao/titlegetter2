@@ -352,7 +352,7 @@ function main() {
   
   // 実行部
   foreach($matchurl as $key => $value) {
-    $regex1 = "(http|https)://([^:/]+)(:(\d+))?(?:(/[^#\s]*)(#(\S+)))?";
+    $regex1 = "(http|https)://([^:/]+)(:(\d+))?(/[^#\s]*)?(#(\S+))?";
     $regex2 = "^ *mode:([^:]+):([^:]+):([^:]+)$";
     $regex3 = "^ *mode:([^:]+)$";
     if (preg_match( "@".$regex1."@i", $value, $match)) {
