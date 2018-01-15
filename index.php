@@ -5,6 +5,7 @@
 // 課題： twitterのスレッドの途中を正しく取得できない。（redmineに使うなら絵文字の除去や取り込み対応を正しくできない）
 //       現在は、markdown形式で、twitterの印象的なつぶやきを一覧分類するためのツール。redmineなどで使っている。
 
+// 20180115 URL入力バグフィックス
 // 20180109 bootstrap3 導入
 // 20180101 クリアボタン増設
 // 20170919 twitter対応、改行改善
@@ -351,7 +352,7 @@ function main() {
   
   // 実行部
   foreach($matchurl as $key => $value) {
-    $regex1 = "(http|https)://([^:/]+)(:(\d+))?(/[^#\s]*)(#(\S+))?";
+    $regex1 = "(http|https)://([^:/]+)(:(\d+))?(?:(/[^#\s]*)(#(\S+)))?";
     $regex2 = "^ *mode:([^:]+):([^:]+):([^:]+)$";
     $regex3 = "^ *mode:([^:]+)$";
     if (preg_match( "@".$regex1."@i", $value, $match)) {
